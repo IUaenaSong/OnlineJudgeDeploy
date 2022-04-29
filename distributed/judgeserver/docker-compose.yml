@@ -2,7 +2,7 @@ version: "3"
 services:
 
   oj-judgeserver:
-    image: swr.cn-east-3.myhuaweicloud.com/iuaenasong/oj_judgeserver
+    image: swr.cn-east-3.myhuaweicloud.com/iuaenasong/oj-judgeserver
     container_name: oj-judgeserver
     restart: always
     volumes:
@@ -36,7 +36,7 @@ services:
     privileged: true # 设置容器的权限为root
 
   oj-rsync-slave:
-    image: swr.cn-east-3.myhuaweicloud.com/iuaenasong/oj_rsync
+    image: swr.cn-east-3.myhuaweicloud.com/iuaenasong/oj-rsync
     container_name: oj-rsync-slave
     restart: always
     volumes:

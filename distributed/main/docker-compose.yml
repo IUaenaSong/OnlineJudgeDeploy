@@ -16,7 +16,7 @@ services:
     command: redis-server --requirepass ${REDIS_PASSWORD:-oj123456} --appendonly yes
         
   oj-mysql:
-    image: swr.cn-east-3.myhuaweicloud.com/iuaenasong/oj_mysql
+    image: swr.cn-east-3.myhuaweicloud.com/iuaenasong/oj-mysql
     container_name: oj-mysql
     restart: always
     volumes:
@@ -62,7 +62,7 @@ services:
         ipv4_address: ${NACOS_HOST:-172.20.0.4}
     
   oj-backend:
-    image: swr.cn-east-3.myhuaweicloud.com/iuaenasong/oj_backend
+    image: swr.cn-east-3.myhuaweicloud.com/iuaenasong/oj-backend
     container_name: oj-backend
     restart: always
     depends_on:
@@ -122,7 +122,7 @@ services:
         ipv4_address: ${BACKEND_HOST:-172.20.0.5}
   
   oj-frontend:
-    image: swr.cn-east-3.myhuaweicloud.com/iuaenasong/oj_frontend
+    image: swr.cn-east-3.myhuaweicloud.com/iuaenasong/oj-frontend
     container_name: oj-frontend
     restart: always
     # 开启https，请提供证书
@@ -145,7 +145,7 @@ services:
         ipv4_address: 172.20.0.6 
 
   oj-rsync-master:
-    image: swr.cn-east-3.myhuaweicloud.com/iuaenasong/oj_rsync
+    image: swr.cn-east-3.myhuaweicloud.com/iuaenasong/oj-rsync
     container_name: oj-rsync-master
     volumes:
       - ${OJ_DATA_DIRECTORY}/testcase:/oj/testcase:ro
@@ -157,7 +157,7 @@ services:
       - "0.0.0.0:873:873"
 
   oj-mysql-checker:
-    image: swr.cn-east-3.myhuaweicloud.com/iuaenasong/oj_mysql_checker
+    image: swr.cn-east-3.myhuaweicloud.com/iuaenasong/oj-mysql-checker
     container_name: oj-mysql-checker
     depends_on:
       - oj-mysql
